@@ -195,5 +195,3 @@ Logstash - ex13
 $ vi ~/data/ex13.conf
 $ bin/logstash -f ~/data/ex13.conf
 123:456:789
-
-
