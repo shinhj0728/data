@@ -2,31 +2,31 @@ EC2 접속 - mac(window는 putty)
 
 $ chmod 400 FC-elastic6.pem
  --> (1회만 해주면 됨)
-$ ssh -i FC-elastic6.pem ec2-user@ec2-51-78-134-20.ap-northeast-2.compute.amazonaws.com
+$ ssh -i FC-elastic6.pem ec2-user@ec2-52-79-142-75.ap-northeast-2.compute.amazonaws.com
 
 ELK 설치
 
 1. JAVA 설치
 $ java -version
-$ sudo yum remove java-1.7.0-openjdk.x86_64 –y
-$ sudo yum install java-1.8.0-openjdk-devel.x86_64 –y
-$ java –version
+$ sudo yum remove java-1.7.0-openjdk.x86_64 -y
+$ sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
+$ java -version
 
 2. limits.conf 설정 변경 
-$ sudo vim /etc/security/limits.conf
+$ sudo vi /etc/security/limits.conf
 
 i 키보드 입력(insert mode)
 
-*        hard    nofile           65536
-*        soft    nofile           65536
-*        soft    nproc           4096
-*        hard    nproc           4096
+*       hard    nofile  65536
+*       soft    nofile  65536
+*       soft    nproc   4096
+*       hard    nproc   4096
 
 esc 키보드 입력
 :wq! 키보드 입력 후 enter
 
 3. sysctl.conf 설정 변경 
-$ sudo vim /etc/sysctl.conf
+$ sudo vi /etc/sysctl.conf
 
 i 키보드 입력
 
@@ -41,10 +41,7 @@ $ sudo reboot
 
 EC2 접속 - mac(window는 putty)
 
-$ chmod 400 FC-elastic6.pem
- --> (1회만 해주면 됨)
-$ ssh -i FC-elastic6.pem ec2-user@ec2-51-78-134-20.ap-northeast-2.compute.amazonaws.com
-
+$ ssh -i FC-elastic6.pem ec2-user@ec2-52-79-142-75.ap-northeast-2.compute.amazonaws.com
 
 ELK Download
 $ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.4.tar.gz
@@ -53,12 +50,12 @@ $ wget https://artifacts.elastic.co/downloads/logstash/logstash-6.5.4.tar.gz
 $ git clone https://github.com/shinhj0728/data.git
 
 ELK 압축해제
-$ tar –zxvf elasticsearch-6.5.4.tar.gz       
-$ tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz 
+$ tar -zxvf elasticsearch-6.5.4.tar.gz
+$ tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
 $ tar -zxvf logstash-6.5.4.tar.gz
 
 EK 설정변경
-$ cd cd ~/elasticsearch-6.5.4
+$ cd ~/elasticsearch-6.5.4
 $ vi config/elasticsearch.yml 
 
 i 키보드 입력
@@ -77,13 +74,13 @@ i 키보드 입력
 -Xms1g
 -Xmx1g  부분을 수정
 
--Xms128mg
--Xmx128mg
+-Xms128m
+-Xmx128m
 
 esc 키보드 입력
 :wq! 키보드 입력 후 enter
 
-$ cd cd ~/kibana-6.5.4-linux-x86_64
+$ cd ~/kibana-6.5.4-linux-x86_64
 $ vi config/kibana.yml 
 
 i 키보드 입력
@@ -106,19 +103,19 @@ i 키보드 입력
 -Xms1g
 -Xmx1g  부분을 수정
 
--Xms128mg
--Xmx128mg
+-Xms128m
+-Xmx128m
 
 esc 키보드 입력
 :wq! 키보드 입력 후 enter
 
 EK 실행
-$ cd cd ~/elasticsearch-6.5.4
+$ cd ~/elasticsearch-6.5.4
 $ bin/elasticsearch 
 백그라운드실행
 $ bin/elasticsearch -d
 
-$ cd cd ~/kibana-6.5.4-linux-x86_64
+$ cd ~/kibana-6.5.4-linux-x86_64
 $ bin/kibana
 백그라운드실행
 $ nohup bin/kibana &
