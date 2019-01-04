@@ -47,6 +47,7 @@ ELK Download
 $ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.4.tar.gz
 $ wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz
 $ wget https://artifacts.elastic.co/downloads/logstash/logstash-6.5.4.tar.gz
+$ sudo yum install git -y
 $ git clone https://github.com/shinhj0728/data.git
 
 ELK 압축해제
