@@ -7,7 +7,7 @@ $ ssh -i FC-elastic6.pem ec2-user@ec2-51-78-134-20.ap-northeast-2.compute.amazon
 ELK 설치
 
 1. JAVA 설치
-$ java –version
+$ java -version
 $ sudo yum remove java-1.7.0-openjdk.x86_64 –y
 $ sudo yum install java-1.8.0-openjdk-devel.x86_64 –y
 $ java –version
